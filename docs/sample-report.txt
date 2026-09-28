@@ -1,0 +1,51 @@
+
+RAW CHECKS
+## containers
+tan90-app	Up About an hour
+tan90-jellyfin	Up About an hour (healthy)
+tan90-nginx	Up About an hour
+tan90-postgres	Up About an hour
+
+## memory
+total        used        free      shared  buff/cache   available
+Mem:            9873        3705         180         148        6448        6168
+Swap:           4095         940        3155
+
+## disk
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv   98G   22G   72G  24% /
+NAME      SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
+storage  1.81T  15.4G  1.80T        -         -     0%     0%  1.00x    ONLINE  -
+
+## database
+/var/run/postgresql:5432 - accepting connections
+
+## http
+http://localhost -> HTTP 200 in 42 ms
+
+## app_log_tail
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+✅ Server running on http://localhost:5000
+🧪 Test it: http://localhost:5000/api/test
+✅ Database connected successfully
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+✅ Server running on http://localhost:5000
+🧪 Test it: http://localhost:5000/api/test
+❌ Database connection failed: the database system is starting up
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+✅ Server running on http://localhost:5000
+🧪 Test it: http://localhost:5000/api/test
+✅ Database connected successfully
+
+LLM SUMMARY (model-generated, verify against raw checks)
+**Health Summary of tan90:**
+
+- All containers are up and running.
+- Memory usage is within normal limits.
+- Disk space is sufficient.
+- PostgreSQL database is accepting connections.
+- HTTP service is accessible at http://localhost.
+- Logs indicate that the database connection initially failed but then succeeded.
+
+**Abnormalities:**
+- Logs show a failed database connection initially, followed by a successful connection.
